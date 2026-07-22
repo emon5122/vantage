@@ -1,0 +1,90 @@
+{
+  "_about": "Vantage default configuration TEMPLATE for a generic Unity IL2CPP target. Copy this, set 'package', and tune 'metadata.expected_size' (your target's global-metadata.dat size) and 'network.fpnn_hint_ports'. Values here are safe, generic defaults — not tied to any specific application.",
+  "package": "com.example.unitygame",
+  "main_activity": "com.unity3d.player.UnityPlayerActivity",
+
+  "phases": {
+    "A_process": true,
+    "B_il2cpp": true,
+    "C_metadata": true,
+    "D_decrypt": false,
+    "E_network": true,
+    "F_requests": true,
+    "G_assets": true,
+    "H_strings": true,
+    "I_lua": true
+  },
+
+  "modules_of_interest": [
+    "libil2cpp.so", "libunity.so", "libmain.so", "libtolua.so"
+  ],
+
+  "metadata": {
+    "filenames": ["global-metadata.dat"],
+    "name_contains": ["metadata", ".dat"],
+    "il2cpp_plain_magic": "AF1BB1FA",
+    "encrypted_magic_ascii": null,
+    "expected_size": 8388608,
+    "_expected_size_note": "Set to your target's global-metadata.dat size to arm the plaintext detector precisely.",
+    "size_tolerance": 8388608,
+    "poll_interval_ms": 50,
+    "poll_max_seconds": 45
+  },
+
+  "network": {
+    "dump_bytes": 48,
+    "dump_direction_max_per_fd": 4,
+    "port_labels": { "80": "http", "443": "https/tls", "8443": "https-alt" },
+    "fpnn_hint_ports": [],
+    "resolve_dns": true
+  },
+
+  "strings": {
+    "il2cpp_string_new": true,
+    "keywords": [
+      "http", "https", "wss", "ws://", "api", "login", "logout", "auth",
+      "token", "session", "server", "serverlist", "gateway", "region",
+      "config", "version", "manifest", "hotfix", "patch", "cdn", "download",
+      "protobuf", "json", "fpnn", "rtm", "heartbeat", ".com", ".net"
+    ],
+    "max_len": 512,
+    "dedup": true
+  },
+
+  "il2cpp": {
+    "try_named_exports": true,
+    "invoke_log_mode": "distinct",
+    "invoke_keyword_filter": [
+      "Login", "Auth", "Token", "Session", "Net", "Http", "Request",
+      "Connect", "Send", "Recv", "AssetBundle", "TextAsset", "HotFix",
+      "Version", "Download"
+    ],
+    "offsets_file": "offsets.json"
+  },
+
+  "il2cpp_recovery": {
+    "allow_behavioral_probe": false,
+    "regscan": true,
+    "regscan_max_words": 2097152,
+    "method_params": true,
+    "method_cap": 512,
+    "max_classes": 200000,
+    "warmup_seconds": 12
+  },
+
+  "lua": {
+    "module": "libtolua.so",
+    "log_loadbuffer": true,
+    "log_pcall": false,
+    "log_globals": false,
+    "global_keyword_filter": ["net", "login", "http", "server", "config", "msg", "packet", "gateway"]
+  },
+
+  "limits": {
+    "max_events_per_sec": 400,
+    "backtrace_depth": 12,
+    "backtrace_on": ["metadata", "network_connect", "network_send", "assetbundle", "decrypt", "lua_load"]
+  },
+
+  "fpnn_capture": { "max_capture_bytes": 8388608 }
+}

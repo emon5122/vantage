@@ -1,0 +1,7 @@
+# Default owners for everything in the repo
+*                       @emon5122
+
+# Security-sensitive areas require owner review
+/src/vantage/agent/     @emon5122
+/src/vantage/instrument/ @emon5122
+/SECURITY.md            @emon5122

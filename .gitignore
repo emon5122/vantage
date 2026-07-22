@@ -1,0 +1,33 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ---- Vantage runtime data (observations are sensitive; never commit) ----
+vantage_data/
+captures/
+logs/
+*.db
+*.db-wal
+*.db-shm
+
+# ---- Private, target-specific research (kept local, never published) ----
+/research/
+
+# ---- Node / editors / OS ----
+node_modules/
+.DS_Store
+*.swp
+.idea/
+.vscode/

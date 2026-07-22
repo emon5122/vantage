@@ -1,0 +1,13 @@
+{
+  "label": "login",
+  "synthetic": true,
+  "connections": {
+    "91": {
+      "peer": {
+        "ip": "198.51.100.7",
+        "port": 13013
+      },
+      "lifetime_ms": 6000
+    }
+  }
+}

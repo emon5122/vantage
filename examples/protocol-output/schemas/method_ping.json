@@ -1,0 +1,28 @@
+{
+  "command": "method:ping",
+  "samples": 5,
+  "directions": {
+    "tx": 5
+  },
+  "message_types": {
+    "twoway_quest": 5
+  },
+  "encoding": "messagepack",
+  "overall_confidence": "Verified",
+  "fields": [
+    {
+      "field": "1",
+      "types": {
+        "int": 5
+      },
+      "present_in": 5,
+      "of_samples": 5,
+      "optional": false,
+      "type_stable": true,
+      "confidence": "Verified"
+    }
+  ],
+  "example_payload": {
+    "#1": 1700000000
+  }
+}

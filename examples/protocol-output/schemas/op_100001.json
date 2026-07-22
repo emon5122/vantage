@@ -1,0 +1,40 @@
+{
+  "command": "op:100001",
+  "samples": 1,
+  "directions": {
+    "rx": 1
+  },
+  "message_types": {
+    "answer": 1
+  },
+  "encoding": "messagepack",
+  "overall_confidence": "Unknown",
+  "fields": [
+    {
+      "field": "1",
+      "types": {
+        "int": 1
+      },
+      "present_in": 1,
+      "of_samples": 1,
+      "optional": false,
+      "type_stable": true,
+      "confidence": "Unknown"
+    },
+    {
+      "field": "2",
+      "types": {
+        "str": 1
+      },
+      "present_in": 1,
+      "of_samples": 1,
+      "optional": false,
+      "type_stable": true,
+      "confidence": "Unknown"
+    }
+  ],
+  "example_payload": {
+    "#1": 100001,
+    "#2": "ok"
+  }
+}

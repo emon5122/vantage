@@ -1,0 +1,62 @@
+{
+  "method:login": {
+    "command": "method:login",
+    "samples": 1,
+    "directions": {
+      "tx": 1
+    },
+    "message_types": {
+      "twoway_quest": 1
+    },
+    "encoding": "messagepack",
+    "confidence": "Unknown"
+  },
+  "method:ping": {
+    "command": "method:ping",
+    "samples": 5,
+    "directions": {
+      "tx": 5
+    },
+    "message_types": {
+      "twoway_quest": 5
+    },
+    "encoding": "messagepack",
+    "confidence": "Verified"
+  },
+  "op:100001": {
+    "command": "op:100001",
+    "samples": 1,
+    "directions": {
+      "rx": 1
+    },
+    "message_types": {
+      "answer": 1
+    },
+    "encoding": "messagepack",
+    "confidence": "Unknown"
+  },
+  "op:1": {
+    "command": "op:1",
+    "samples": 5,
+    "directions": {
+      "rx": 5
+    },
+    "message_types": {
+      "answer": 5
+    },
+    "encoding": "messagepack",
+    "confidence": "Verified"
+  },
+  "method:onPush": {
+    "command": "method:onPush",
+    "samples": 1,
+    "directions": {
+      "rx": 1
+    },
+    "message_types": {
+      "oneway_quest": 1
+    },
+    "encoding": "messagepack",
+    "confidence": "Unknown"
+  }
+}

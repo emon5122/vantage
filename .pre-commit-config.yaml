@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ["--maxkb=512"]
+      - id: check-merge-conflict
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.7
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+  - repo: local
+    hooks:
+      - id: observation-only-guard
+        name: observation-only guard (agent must not alter target)
+        entry: bash -c 'if grep -RInE "Interceptor\\.replace|Memory\\.write|writeByteArray" src/vantage/agent; then echo "observation-only violation"; exit 1; fi'
+        language: system
+        pass_filenames: false

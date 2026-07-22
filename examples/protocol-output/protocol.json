@@ -1,0 +1,150 @@
+{
+  "target": "synthetic-demo",
+  "framing": {
+    "transport": {
+      "type": "TCP",
+      "value": "raw stream (com.fpnn.TCPClient/TCPConnection)",
+      "confidence": "verified(class)"
+    },
+    "magic": {
+      "tcp": "FPNN (0x46504E4E)",
+      "udp": "FUNN",
+      "confidence": "spec"
+    },
+    "header_bytes": 12,
+    "header": [
+      {
+        "offset": 0,
+        "size": 4,
+        "field": "magic",
+        "confidence": "spec"
+      },
+      {
+        "offset": 4,
+        "size": 1,
+        "field": "version",
+        "note": "typically 0x01",
+        "confidence": "spec"
+      },
+      {
+        "offset": 5,
+        "size": 1,
+        "field": "flag",
+        "note": "0x80 FLAG_MSGPACK, 0x40 FLAG_JSON",
+        "confidence": "spec"
+      },
+      {
+        "offset": 6,
+        "size": 1,
+        "field": "mtype",
+        "note": "0 oneway-quest, 1 twoway-quest, 2 answer",
+        "confidence": "spec"
+      },
+      {
+        "offset": 7,
+        "size": 1,
+        "field": "ss",
+        "note": "quest: method-name length; answer: status",
+        "confidence": "spec"
+      },
+      {
+        "offset": 8,
+        "size": 4,
+        "field": "psize",
+        "note": "payload size, little-endian",
+        "confidence": "spec"
+      }
+    ],
+    "after_header": [
+      {
+        "field": "seqNum",
+        "size": 4,
+        "note": "LE; present for two-way quest & answer (one-way: confirm by capture)",
+        "confidence": "spec"
+      },
+      {
+        "field": "method",
+        "size": "ss",
+        "note": "quest only, UTF-8",
+        "confidence": "spec"
+      },
+      {
+        "field": "payload",
+        "size": "psize",
+        "note": "MessagePack map (FLAG_MSGPACK) or JSON",
+        "confidence": "spec"
+      }
+    ],
+    "encoding": {
+      "value": "MessagePack",
+      "evidence": "com.fpnn.msgpack.MsgPacker/MsgUnpacker + FLAG_MSGPACK",
+      "confidence": "verified(class)"
+    },
+    "authentication": {
+      "value": "first two-way quest after connect typically carries a session token",
+      "confidence": "inferred",
+      "note": "confirm method + fields by capturing the login exchange"
+    },
+    "heartbeat": {
+      "value": "recurring same-method quest at a regular interval",
+      "confidence": "capture-derived"
+    },
+    "reconnect": {
+      "value": "new connect() to same peer after close()",
+      "confidence": "capture-derived"
+    },
+    "request_ids": {
+      "value": "seqNum (LE u32), monotonic per connection",
+      "confidence": "spec"
+    },
+    "push_messages": {
+      "value": "one-way quest (mtype=0) arriving on rx",
+      "confidence": "spec+capture"
+    },
+    "compression": {
+      "value": "FPNN supports a ZIP flag; observe the flag byte",
+      "confidence": "spec/observe"
+    },
+    "encryption": {
+      "value": "raw TCP (no TLS on the FPNN socket); any application-layer field encryption is observed, never removed",
+      "confidence": "observe",
+      "note": "no protection, signing, or integrity check is bypassed"
+    },
+    "error_handling": {
+      "value": "answer with ss(status) != 0 carries an error payload",
+      "confidence": "spec"
+    },
+    "version_negotiation": {
+      "value": "header.version; application version negotiated out of band over HTTP",
+      "confidence": "spec+inferred"
+    }
+  },
+  "observed": {
+    "frames": 13,
+    "correlation": {
+      "quests": 7,
+      "answers": 6,
+      "pairs": 6,
+      "pushes": 1,
+      "unanswered": 0,
+      "rtt_ms": {
+        "min": 30.0,
+        "median": 30.0,
+        "max": 50.0
+      }
+    },
+    "heartbeats": [
+      {
+        "method": "ping",
+        "interval_s_median": 1.0,
+        "count": 5,
+        "jitter_s": 0.0,
+        "confidence": "observed"
+      }
+    ],
+    "pushes_count": 1,
+    "retries_count": 4,
+    "commands_observed": 5
+  },
+  "note": "framing fields are FPNN-standard (spec); opcodes/schemas are capture-derived. No traffic was generated, replayed, or modified."
+}

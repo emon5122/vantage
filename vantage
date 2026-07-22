@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Vantage launcher (no-install). For a proper install: pip install -e .
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export PYTHONPATH="$DIR/src${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m vantage "$@"

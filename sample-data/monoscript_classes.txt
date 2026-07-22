@@ -1,0 +1,12 @@
+Assembly-CSharp|com.fpnn|TCPClient
+Assembly-CSharp|com.fpnn|TCPConnection
+Assembly-CSharp|com.fpnn.proto|Quest
+Assembly-CSharp|com.fpnn.proto|Answer
+Assembly-CSharp|com.fpnn.msgpack|MsgPacker
+Assembly-CSharp|com.example.framework|HttpClient
+Assembly-CSharp|com.example.framework|LoginManager
+Assembly-CSharp|com.example.framework|SessionManager
+Assembly-CSharp|com.example.framework|VersionManifestChecker
+Assembly-CSharp|com.example.framework|AssetBundleManager
+Assembly-CSharp||ShopController
+OdinSerializer|OdinSerializer|BinaryDataWriter

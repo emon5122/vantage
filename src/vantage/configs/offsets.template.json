@@ -1,0 +1,22 @@
+{
+  "_README": "Optional IL2CPP API module-relative RVAs, for hardened targets whose libil2cpp export NAMES are stripped/encrypted so the locator cannot resolve il2cpp_* by name. Move the block below to a top-level 'libil2cpp.so' key and fill hex RVAs obtained from a static analysis of a DECRYPTED libil2cpp dump you are authorised to produce. Vantage does NOT produce that dump and does NOT defeat any protection. Once provided, the metadata-recovery tool locates the read-only API and walks the in-memory type system. Keys must match agent/il2cpp/api_defs.js.",
+  "_example": {
+    "libil2cpp.so": {
+      "il2cpp_domain_get": "0x0",
+      "il2cpp_domain_get_assemblies": "0x0",
+      "il2cpp_assembly_get_image": "0x0",
+      "il2cpp_image_get_name": "0x0",
+      "il2cpp_image_get_class_count": "0x0",
+      "il2cpp_image_get_class": "0x0",
+      "il2cpp_class_get_name": "0x0",
+      "il2cpp_class_get_namespace": "0x0",
+      "il2cpp_class_get_methods": "0x0",
+      "il2cpp_method_get_name": "0x0",
+      "il2cpp_method_get_param_count": "0x0",
+      "il2cpp_method_get_return_type": "0x0",
+      "il2cpp_type_get_type": "0x0",
+      "il2cpp_type_get_class_or_element_class": "0x0",
+      "il2cpp_string_new": "0x0"
+    }
+  }
+}

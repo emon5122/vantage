@@ -1,0 +1,40 @@
+{
+  "command": "method:onPush",
+  "samples": 1,
+  "directions": {
+    "rx": 1
+  },
+  "message_types": {
+    "oneway_quest": 1
+  },
+  "encoding": "messagepack",
+  "overall_confidence": "Unknown",
+  "fields": [
+    {
+      "field": "1",
+      "types": {
+        "int": 1
+      },
+      "present_in": 1,
+      "of_samples": 1,
+      "optional": false,
+      "type_stable": true,
+      "confidence": "Unknown"
+    },
+    {
+      "field": "2",
+      "types": {
+        "str": 1
+      },
+      "present_in": 1,
+      "of_samples": 1,
+      "optional": false,
+      "type_stable": true,
+      "confidence": "Unknown"
+    }
+  ],
+  "example_payload": {
+    "#1": 3,
+    "#2": "push"
+  }
+}

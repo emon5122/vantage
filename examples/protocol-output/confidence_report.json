@@ -1,0 +1,23 @@
+{
+  "framing": "spec (FPNN public standard) — magic-confirmed once captured",
+  "encoding": "verified(class) MessagePack",
+  "commands": {
+    "method:login": "Unknown",
+    "method:ping": "Verified",
+    "op:100001": "Unknown",
+    "op:1": "Verified",
+    "method:onPush": "Unknown"
+  },
+  "heartbeats": [
+    {
+      "method": "ping",
+      "interval_s_median": 1.0,
+      "count": 5,
+      "jitter_s": 0.0,
+      "confidence": "observed"
+    }
+  ],
+  "verified_fields": 2,
+  "likely_fields": 0,
+  "unknown_fields": 7
+}

@@ -1,0 +1,31 @@
+name: Feature request
+description: Propose an enhancement (observation-only capabilities only)
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Vantage is **observation-only**. Proposals that add automation, packet
+        injection/replay, memory modification, or protection bypass are out of scope
+        (see [docs/threat-model.md](../../docs/threat-model.md)) and will be closed.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / use case
+      description: What are you trying to understand or analyse?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Sketch the observation-only capability, and which module/plugin seam it fits.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: This request is observation-only (no automation/injection/replay/memory-mod/bypass).
+          required: true

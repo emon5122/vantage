@@ -1,0 +1,42 @@
+{
+  "method:login": {
+    "command": "method:login",
+    "request_cmd_id": null,
+    "managed_class": null,
+    "calling_method": null,
+    "schema_ref": "schemas/method_login.json",
+    "confidence": "Unknown"
+  },
+  "method:ping": {
+    "command": "method:ping",
+    "request_cmd_id": null,
+    "managed_class": null,
+    "calling_method": null,
+    "schema_ref": "schemas/method_ping.json",
+    "confidence": "Verified"
+  },
+  "op:100001": {
+    "command": "op:100001",
+    "request_cmd_id": null,
+    "managed_class": null,
+    "calling_method": null,
+    "schema_ref": "schemas/op_100001.json",
+    "confidence": "Unknown"
+  },
+  "op:1": {
+    "command": "op:1",
+    "request_cmd_id": null,
+    "managed_class": null,
+    "calling_method": null,
+    "schema_ref": "schemas/op_1.json",
+    "confidence": "Verified"
+  },
+  "method:onPush": {
+    "command": "method:onPush",
+    "request_cmd_id": null,
+    "managed_class": null,
+    "calling_method": null,
+    "schema_ref": "schemas/method_onPush.json",
+    "confidence": "Unknown"
+  }
+}
