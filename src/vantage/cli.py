@@ -4,6 +4,7 @@ vantage.cli — unified command-line entry point.
     vantage version
     vantage kb <...>                 protocol knowledge base (import/search/diff/docs/serve)
     vantage protocol build <dirs>    build FPNN protocol artifacts from captures
+    vantage protocol from-pcap <f>   decode FPNN sessions from a Wireshark pcap/pcapng
     vantage protocol synth <out>     write a synthetic sample capture session
     vantage classify <...>           classify a managed-class inventory
     vantage instrument <tool> ...    run an observation-only Frida tool (needs 'vantage[instrument]')
@@ -53,6 +54,8 @@ def main(argv=None):
     if cmd == "protocol":
         if rest and rest[0] == "build":
             return _run("vantage.protocol.build", rest[1:])
+        if rest and rest[0] == "from-pcap":
+            return _run("vantage.protocol.pcap", rest[1:])
         if rest and rest[0] == "synth":
             if len(rest) < 2:
                 print("usage: vantage protocol synth <out_dir> [--label L]"); return 1
@@ -63,7 +66,7 @@ def main(argv=None):
             out = write_session(rest[1], label=label)
             print(f"[*] synthetic capture session -> {out}  (records are marked _synthetic)")
             return 0
-        print("usage: vantage protocol {build|synth} ..."); return 1
+        print("usage: vantage protocol {build|synth|from-pcap} ..."); return 1
 
     if cmd == "instrument":
         if not rest or rest[0] not in INSTRUMENT:

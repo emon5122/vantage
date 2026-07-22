@@ -18,6 +18,9 @@ Start here, then dive into the area you need.
 - [IL2CPP metadata recovery](components/metadata-recovery.md)
 - [Protocol analysis](components/protocol-analysis.md) — FPNN + MessagePack
 
+## Guides
+- [Capturing FPNN traffic with Wireshark / PCAPdroid](guides/capturing-with-wireshark.md)
+
 ## Reference
 - [API reference](api-reference.md)
 

@@ -21,7 +21,17 @@ raw TCP stream  →  fpnn.iter_stream  →  fpnn.parse_message  →  msgpack.dec
 | [`correlate.py`](../../src/vantage/protocol/correlate.py) | quest↔answer pairing, RTT, heartbeat/push/retry | frames | timing model |
 | [`schema.py`](../../src/vantage/protocol/schema.py) | per-command schema inference + confidence | frames | schemas |
 | [`build.py`](../../src/vantage/protocol/build.py) | assemble `protocol.json`/`opcode_map`/`schemas/` | capture dirs | artifacts |
+| [`pcap.py`](../../src/vantage/protocol/pcap.py) | decode FPNN sessions from a `.pcap`/`.pcapng` (reassembly + timestamps) | capture file | capture session |
 | [`synthetic.py`](../../src/vantage/protocol/synthetic.py) | **synthetic** spec-conformant frames | — | test/sample input |
+
+### Capturing from a packet capture
+
+Because FPNN is raw TCP, you can decode it from a passive packet capture of your
+own device (Wireshark / PCAPdroid / tcpdump) — no process instrumentation. See
+the [Wireshark capture guide](../guides/capturing-with-wireshark.md).
+`vantage protocol from-pcap` reads classic pcap and pcapng (Ethernet / Linux SLL /
+raw IP / loopback link types, IPv4 + IPv6), reassembles TCP flows, auto-detects
+FPNN by magic, and emits a capture session with real per-frame timestamps.
 
 ## FPNN framing (byte offsets)
 

@@ -6,6 +6,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+- **`vantage protocol from-pcap`** — decode FPNN sessions directly from a passive
+  packet capture (`.pcap` / `.pcapng`, e.g. Wireshark / PCAPdroid / tcpdump). A
+  dependency-free reader (classic pcap us/ns + pcapng; Ethernet / Linux SLL / raw
+  IP / loopback; IPv4 + IPv6) reassembles TCP flows, auto-detects FPNN by magic,
+  and emits a capture session with real per-frame timestamps that drops straight
+  into `kb import`. Observation-only: it reads a file you recorded of your own
+  traffic and never contacts a device or network. See
+  [docs/guides/capturing-with-wireshark.md](docs/guides/capturing-with-wireshark.md).
+
 ## [0.1.0] — 2026-07-22
 
 Initial public release of **Vantage**, an observation-only runtime analysis and
